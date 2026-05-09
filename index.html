@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My AWS Amplify App</title>
+    <title>Percentage Calculator</title>
 </head>
-<body>
-    <h1>Welcome to My Cloud Web App </h1>
-    <p>This app is hosted using AWS Amplify</p>
 
-    <button onclick="showMsg()">Click Me</button>
+<body style="font-family:Arial; text-align:center; margin-top:50px;">
 
-    <script>
-        function showMsg() {
-            alert("Hello! Your app is running on AWS Cloud ");
-        }
-    </script>
+    <h2>Percentage Calculator </h2>
+
+    <form method="POST">
+
+        <input type="number" name="m1" placeholder="Subject 1"><br><br>
+        <input type="number" name="m2" placeholder="Subject 2"><br><br>
+        <input type="number" name="m3" placeholder="Subject 3"><br><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if total is not none %}
+        <h3>Total: {{ total }}</h3>
+        <h3>Percentage: {{ percent | round(2) }}%</h3>
+    {% endif %}
+
 </body>
 </html>
