@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Percentage Calculator</title>
+    <title>Marks Calculator</title>
 </head>
 
 <body style="font-family:Arial; text-align:center; margin-top:50px;">
 
-    <h2>Percentage Calculator </h2>
+    <h2>Student Marks Calculator 📊</h2>
 
-    <form method="POST">
+    <input type="number" id="m1" placeholder="Subject 1"><br><br>
+    <input type="number" id="m2" placeholder="Subject 2"><br><br>
+    <input type="number" id="m3" placeholder="Subject 3"><br><br>
 
-        <input type="number" name="m1" placeholder="Subject 1"><br><br>
-        <input type="number" name="m2" placeholder="Subject 2"><br><br>
-        <input type="number" name="m3" placeholder="Subject 3"><br><br>
+    <button onclick="calculate()">Calculate</button>
 
-        <button type="submit">Calculate</button>
-    </form>
+    <h3 id="result"></h3>
 
-    {% if total is not none %}
-        <h3>Total: {{ total }}</h3>
-        <h3>Percentage: {{ percent | round(2) }}%</h3>
-    {% endif %}
+    <script>
+        function calculate() {
+            let a = parseFloat(document.getElementById("m1").value) || 0;
+            let b = parseFloat(document.getElementById("m2").value) || 0;
+            let c = parseFloat(document.getElementById("m3").value) || 0;
+
+            let total = a + b + c;
+            let percent = (total / 300) * 100;
+
+            document.getElementById("result").innerHTML =
+                "Total: " + total + "<br>Percentage: " + percent.toFixed(2) + "%";
+        }
+    </script>
 
 </body>
 </html>
